@@ -1,5 +1,6 @@
 #!/bin/bash
-set +e
+set -eu
+
 ZBX_SERVER_IP=$1
 
 echo '--> Install the repository configuration package'
@@ -24,4 +25,4 @@ echo '--> Configuring UFW to allow connections to this port'
 sudo ufw allow 10050/tcp
 
 echo '--> Unable firewall'
-sudo ufw enable
+sudo ufw --force enable
