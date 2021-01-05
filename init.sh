@@ -2,6 +2,7 @@
 set -e
 
 #https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
+# DOCKER
 echo '--> Updating list of packages...'
 sudo apt update
 
@@ -25,4 +26,17 @@ sudo apt -y install docker-ce
 
 echo '--> Checking docker'
 docker ps
+
+
+# DOCKER-COMPOSE
+#https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04
+
+echo '--> Downloading release and saving the executable file'
+sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+echo '--> Setting docker-compose executable'
+sudo chmod +x /usr/local/bin/docker-compose
+
+echo '--> Checking Docker-compose version'
+docker-compose --version
 
