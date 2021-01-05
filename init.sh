@@ -6,7 +6,7 @@ echo '--> Updating list of packages...'
 sudo apt update
 
 echo '--> Installing a few prerequisite packages'
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
+sudo apt -y install apt-transport-https ca-certificates curl software-properties-common
 
 echo '--> Adding the GPG key for the official Docker repository'
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -21,7 +21,7 @@ echo '--> Making sure you are about to install from the Docker repo instead of t
 apt-cache policy docker-ce
 
 echo '--> Installing Docker'
-sudo apt install docker-ce
+sudo apt -y install docker-ce
 
 echo '--> Checking docker'
 docker ps
