@@ -1,8 +1,6 @@
 #!/bin/bash
 set -eu
 
-ZBX_SERVER_HOST=$1
-export ZBX_SERVER_HOST=$1
-
-docker-compose install-zabbix-agent.yaml -d up
+ZABBIX_SERVER_HOST=$1
+docker run --rm --name zabbix-agent -e ZBX_HOSTNAME="test-container" -e ZBX_SERVER_HOST="${ZABBIX_SERVER_HOST}" -d -p 10050:10050 zabbix/zabbix-agent
 
