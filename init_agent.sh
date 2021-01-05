@@ -17,12 +17,10 @@ echo "--> Configuring agent. Server IP: ${ZBX_SERVER_IP}"
 sudo sed -i "s/Server=127.0.0.1/Server=${ZBX_SERVER_IP}/" /etc/zabbix/zabbix_agentd.conf
 sudo sed -i "s/ServerActive=127.0.0.1/ServerActive=${ZBX_SERVER_IP}/" /etc/zabbix/zabbix_agentd.conf
 
+echo '--> Configuring UFW to allow connections'
+sudo ufw allow 10050/tcp
+sudo ufw --force enable
+
 echo '--> Restarting zabbix-agent'
 sudo systemctl restart zabbix-agent
 sudo systemctl enable zabbix-agent
-
-echo '--> Configuring UFW to allow connections to this port'
-sudo ufw allow 10050/tcp
-
-echo '--> Unable firewall'
-sudo ufw --force enable
