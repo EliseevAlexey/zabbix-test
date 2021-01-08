@@ -40,7 +40,6 @@
    image: zabbix/zabbix-agent:latest
    privileged: true
    restart: unless-stopped
+   network_mode: "host"
    environment:
-    ZBX_SERVER_HOST: 127.0.0.1
-   ports:
-    - 10050:10050
+    - ZBX_SERVER_HOST=127.0.0.1
