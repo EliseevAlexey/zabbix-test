@@ -35,3 +35,10 @@
     - zabbix-server
    ports:
     - 8090:8080
+
+  zabbix-agent:
+   image: zabbix/zabbix-agent:latest
+   privileged: true
+   restart: unless-stopped
+   environment:
+    ZBX_SERVER_HOST: 127.0.0.1
