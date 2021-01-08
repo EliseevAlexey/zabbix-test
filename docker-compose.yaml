@@ -42,3 +42,5 @@
    restart: unless-stopped
    environment:
     ZBX_SERVER_HOST: 127.0.0.1
+   ports:
+    - 10050:10050
