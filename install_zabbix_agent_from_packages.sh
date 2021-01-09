@@ -2,7 +2,6 @@
 set -eu
 
 ZBX_SERVER_IP=$1
-HOST_NAME=$(cat /etc/hostname)
 
 echo '--> Install the repository configuration package'
 wget https://repo.zabbix.com/zabbix/5.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.0-1+focal_all.deb
