@@ -17,6 +17,10 @@
     POSTGRES_USER: zabbix
     POSTGRES_PASSWORD: zabbix
     POSTGRES_DB: zabbix
+    ZBX_JAVAGATEWAY_ENABLE: "true"
+    ZBX_JAVAGATEWAY: zabbix-java-gateway
+    ZBX_JAVAGATEWAYPORT: 10052
+    ZBX_STARTJAVAPOLLERS: 5
    depends_on:
     - postgres-server
    volumes:
@@ -43,3 +47,8 @@
    network_mode: "host"
    environment:
     ZBX_SERVER_HOST: 127.0.0.1
+
+  zabbix-java-gateway:
+   image: zabbix/zabbix-java-gateway:ubuntu-latest
+   ports:
+    - 10052:10052
